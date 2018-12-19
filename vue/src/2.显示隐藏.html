@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="assets/vue.js"></script>
+        <style type="text/css">
+            .dpn{display:none;}
+
+        </style>
+    </head>
+    <body>
+        <div id="box"></div>
+        <script type="text/javascript">
+            let mv=new Vue({
+                el:'#box',
+                data:{
+                    but:true
+                },
+                template:`<div>
+                    <h1>显示隐藏</h1>
+                    <button v-on:click="but=!but">{{but?'显示' : '隐藏'}}</button>
+                    <div v-if='but'>
+                        <img src="img/g3.jpg" alt="">
+                    </div>
+                    <div v-else class="dpn">
+                        
+                    </div>
+                </div>`
+            }) 
+        </script>
+    </body>
+</html>

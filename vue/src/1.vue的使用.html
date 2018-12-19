@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="assets/vue.js"></script> 
+        <style>
+        .border{border:5px solid #f00;}
+        .size{width:120px;}
+        .circle{border-radius: 50%;}
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            
+        </div>
+        <script type="text/javascript">
+            let mv= new Vue({
+                el:'#box',
+                data:{
+                    wenhou:'明天',
+                    inhtnl:'元气满满',
+                    yuanshe:'red',
+                    url:'img/g3.jpg',
+                    imgClass:'size'
+                },
+                template:`<div>
+                    <input type="email" name="" v-model="wenhou" placeholder="">
+                    <h2>你好，{{wenhou}}</h2>
+                    <div v-html='inhtnl' v-bind:style="{color:yuanshe}">
+                    
+                    </div>
+                    <img :src="url" :class="imgClass">
+                    <select v-model="imgClass">
+                        <option value="border">border</option>
+                        <option value="size">size</option>
+                        <option value="circle">circle</option>
+                    </select>
+                </div>`
+            })
+
+
+
+
+        </script>
+    </body>
+</html>
