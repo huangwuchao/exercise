@@ -5,26 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>layout 后台大布局 - Layui</title>
 
-  <link rel="stylesheet" href="assets/layui-v2.4.5/layui/css/layui.css">
-  <script type="text/javascript" src="assets/layui-v2.4.5/layui/layui.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="../assets/layui-v2.4.5/layui/css/layui.css">
+  <script type="text/javascript" src="../assets/layui-v2.4.5/layui/layui.js" charset="utf-8"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
   <div class="layui-header">
     <div class="layui-logo">试水后台管理</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
-    <ul class="layui-nav layui-layout-left">
-      <li class="layui-nav-item"><a href="">控制台</a></li>
-      <li class="layui-nav-item"><a href="">商品管理</a></li>
-      <li class="layui-nav-item"><a href="">用户</a></li>
-      <li class="layui-nav-item">
-        <a href="javascript:;">其它系统</a>
-        <dl class="layui-nav-child">
-          <dd><a href="">没有功能</a></dd>
-          <dd><a href="">没有功能</a></dd>
-          <dd><a href="">没有功能</a></dd>
-        </dl>
-      </li>
+    <ul class="layui-nav layui-layout-left" style="margin-top:19px;">
+          <span class="layui-breadcrumb">
+      <a href="/">首页</a>
+      <a href="/demo/">商品管理</a>
+      <a><cite>商品分类</cite></a>
+    </span>
     </ul>
     <ul class="layui-nav layui-layout-right">
       <li class="layui-nav-item">
@@ -48,20 +42,20 @@
         <li class="layui-nav-item layui-nav-itemed">
           <a class="" href="javascript:;">商品管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="html/shangpin.html">商品列表</a></dd>
-            <dd><a href="html/fenlei.html">商品分类</a></dd>
+            <dd><a href="shangpin.html">商品列表</a></dd>
+            <dd><a href="javascript:;">商品分类</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
           <a href="javascript:;">用户管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="html/yonhu.html">用户列表</a></dd>
+            <dd><a href="yonhu.html">用户列表</a></dd>
           </dl>
         </li>
        <li class="layui-nav-item">
           <a href="javascript:;">订单管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="html/dindan.html">订单列表</a></dd>
+           <dd><a href="dindan.html">订单列表</a></dd>
           </dl>
         </li>
       </ul>
@@ -76,14 +70,6 @@
 
 
     </table>
-
-   <div class="demoTable">
-    搜索ID：
-    <div class="layui-inline">
-      <input class="layui-input" name="id" id="demoReload" autocomplete="off">
-    </div>
-    <button class="layui-btn" data-type="reload">搜索</button>
-  </div>
  
   <script type="text/html" id="toolbarDemo">
   <div class="layui-btn-container">
@@ -127,7 +113,6 @@ layui.use('table', function(){
       ,{field:'joinTime', title:'加入时间', width:120}
       ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
     ]]
-    ,id: 'testReload'
     ,page: true
   });
   
@@ -169,31 +154,6 @@ layui.use('table', function(){
         layer.close(index);
       });
     }
-  });
-});
-
-
-  var $ = layui.$, active = {
-    reload: function(){
-      var demoReload = $('#demoReload');
-      
-      
-      //执行重载
-      table.reload('testReload', {
-        page: {
-          curr: 1 //重新从第 1 页开始
-        }
-        ,where: {
-          key: {
-            id: demoReload.val()
-          }
-        }
-      });
-    }
-  };
-   $('.demoTable .layui-btn').on('click', function(){
-    var type = $(this).data('type');
-    active[type] ? active[type].call(this) : '';
   });
 });
 </script>
