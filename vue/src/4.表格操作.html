@@ -168,12 +168,12 @@
                     }
                 ]
             },
-            // 一般用于需要复杂逻辑或运算才能得到的值，应当使用计算属性
-            // computed中的属性会根据data数据的变化而自动改变
-            // computed中的属性值都是一个函数，必须有返回值
-
-            // 这里的函数默认为getter
+            
             computed: {
+                // 一般用于需要复杂逻辑或运算才能得到的值，应当使用计算属性
+                // computed中的属性会根据data数据的变化而自动改变
+                // computed中的属性值都是一个函数，必须有返回值
+                // 这里的函数默认为getter
                 yixuan: {
                     get() {
                         if (this.selected.length === this.song.length) {
@@ -193,6 +193,7 @@
                 }
             },
             methods: {
+                //点击全选实现全选
                 selectRow(index){
                     console.log(123)
                     let i=this.selected.indexOf(index);

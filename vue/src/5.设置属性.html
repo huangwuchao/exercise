@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //对象的属性特征
+            //*值属性（有一个值得属性）
+                //writable  (可写性)是否可写
+                //enumerable  （可枚举性）枚举可以理解成遍历
+                //configursable  (可配置型)相当于总开关，用来控制其他属性特性是否可以修改
+            //*存储器属性
+                //*getter
+                //*setter
+        var obj1={
+            mane:'laoxie',
+            age:28,
+            gendaer:'nan'
+        }
+       
+        //设置age属性不可以更改（不可写）：需要把writable设为false
+        // Object.defineProperties(obj1,'age',{
+        //     writable:false
+        // });
+        Object.defineProperty(obj1,'age',{
+            writable:false
+        });
+        obj1.age=18;
+        //设置age属性不可以遍历：把enumerable设置为false
+        Object.defineProperty(obj1,'age',{
+            enumerable:false
+        });
+        //给对象obj1添加属性，属性的默认特征为false
+        Object.defineProperty(obj1,'shijian',{
+            value:2018
+        })
+        console.log(obj1)
+        for(var key in obj1){
+            console.log(key)
+        }
+        
+        
+        
+    </script>     
+    
+</body>
+</html>
