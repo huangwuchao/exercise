@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>复用搜索</title>
+    <script src="assets/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <shoushe id="cs" :data="chengshi"></shoushe><br>
+        <shoushe id="sc" :data="shenghui"></shoushe>
+    </div>
+    <template id="kuang">
+            <div>
+                <input type="shoushe" :list="id"><button>搜索</button>
+                <datalist :id="id">
+                    <option v-for="item in data" :key="item" :value="item">{{item}}</option>
+                </datalist>
+            </div>
+        </template>
+    <script>
+        Vue.component('shoushe',{
+            props:['data','id'],
+            data(){
+                return{
+                   
+                }
+                
+            },
+            template:`#kuang`
+        })
+        let mv= new Vue({
+           el:'#box',
+           data:{
+            chengshi:['广州','深圳','东莞','珠海','佛山'],
+            shenghui:['广东','福建','浙江']
+              
+           }
+        })
+    </script>
+</body>
+</html>

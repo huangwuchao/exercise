@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="assets/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <h1>{{mane}}</h1>
+        <my-zhu></my-zhu>
+    </div>
+    <template id="shi">
+        <div>
+            <my-zhu></my-zhu>
+        </div>
+    </template>    
+    <script>
+        Vue.component('my-zhu',{
+            data(){
+                return {
+                    shi:'nice'
+                }
+            },
+            template:`
+                <div>
+                    时间会给我答案{{shi}} 
+                    <br/>  
+                     <my-but></my-but> 
+                     <my-but></my-but> 
+                     <my-but></my-but>  
+                </div>
+            `,
+            components:{
+                myBut:{
+                    data(){
+                        return {
+                            qty:1
+                        }
+                    },
+                    methods:{
+                        jiajia(){
+                            this.qty++
+                        }
+                    },
+                    template:`<button @click='jiajia'>laoxie的按钮{{qty}}</button>`
+                }
+                
+            }
+        });
+        new Vue({
+            el:'#box',
+            data:{
+                mane:'组件认识'
+            },
+            template:'#shi'
+        })
+    
+    
+    </script>
+</body>
+</html>
