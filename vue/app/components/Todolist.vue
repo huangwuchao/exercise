@@ -9,6 +9,7 @@
 
 <script>
 // 引入所需模块
+import bus from './bus';
 import TodoForm from './TodoForm.vue';
 import TodoContent from './TodoContent.vue';
 

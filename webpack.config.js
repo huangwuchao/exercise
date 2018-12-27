@@ -23,6 +23,7 @@ module.exports = {
     devServer:{
         contentBase:'vue/app/',
         port:4008,
+        open:true
     },
 
     // 加载器配置
