@@ -7,31 +7,32 @@ const { VueLoaderPlugin } = require('vue-loader');
 module.exports = {
     // 入口文件
     entry:{
-        main:'./vue/app/app.js',
+        main:'./src/index.js',
     },
 
     // 出口：打包文件放置的目录
     output:{
-        path:path.resolve(__dirname,'./vue/dist/'), //打包文件存放路径
+        path:path.resolve(__dirname,'./dist/'), //打包文件存放路径
         filename:'js/[name][hash:5].js',
         // publicPath:'/'
     },
 
     // 编译模式
-    mode:'development', 
+    mode:'development',
 
     // 测试服务器：安装
     devServer:{
-        contentBase:'./vue/app/',
-        port:3108,
-        open:true
+        contentBase:'./src/',
+        port:1901,
+        // open:true
     },
 
     resolve:{
         // 别名
         alias:{
             'vue$':'vue/dist/vue',
-            '@':path.resolve('src')
+            '@':path.resolve('src'),
+            '@com':path.resolve('src/components')
         },
         extensions:['.js','.json','.vue']
     },
@@ -91,7 +92,7 @@ module.exports = {
     plugins:[
         // 根据指定模板生成html结构
         new HtmlWebpackPlugin({
-            template:'./vue/app/template.html'
+            template:'./src/template.html'
         }),
 
         // Vue-loader的使用，在15.*之后的版本都需要伴随 VueLoaderPlugin
