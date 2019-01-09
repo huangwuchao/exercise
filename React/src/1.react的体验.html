@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/react.development.js"></script>
+    <script src="./lib/react-dom.development.js"></script>
+    <script src="./lib/babel.min.js"></script>
+    
+   
+</head>
+<body>
+    <div id="box"></div>
+    <script type="text/babel">
+        let imgurl='./img/mv4.jpg';
+        ReactDOM.render(
+            <div>
+            <h2 id="app" className="tit" style={{color:'red'}}>
+                react 的体验
+            </h2>
+            <ul>
+                <li>
+                    <img src={imgurl}/>
+                </li>
+            </ul>
+            </div>
+            ,
+            document.getElementById('box')
+        )
+    
+    </script>
+</body>
+</html>
